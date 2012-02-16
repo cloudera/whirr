@@ -20,13 +20,13 @@
   <parent>
     <groupId>org.apache.whirr</groupId>
     <artifactId>whirr</artifactId>
-    <version>0.7.1</version>
+    <version>0.7.1-cdh4b2-SNAPSHOT</version>
     <relativePath>../../pom.xml</relativePath>
   </parent>
   <groupId>org.apache.whirr</groupId>
   <artifactId>whirr-cdh</artifactId>
   <packaging>jar</packaging>
-  <version>0.7.1</version>
+  <version>0.7.1-cdh4b2-SNAPSHOT</version>
   <name>Apache Whirr CDH</name>
   <dependencies>
     <dependency>
@@ -104,7 +104,19 @@
       <artifactId>hadoop-core</artifactId>
       <!-- <version>0.20.2-cdh3u0</version> -->
       <!-- <version>0.20.2-cdh3u1</version> -->
-      <version>0.20.2-cdh3u2</version>
+      <version>${cdh.mr1.version}</version>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.hadoop</groupId>
+      <artifactId>hadoop-hdfs</artifactId>
+      <version>${cdh.hadoop.version}</version>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.hadoop</groupId>
+      <artifactId>hadoop-common</artifactId>
+      <version>${cdh.hadoop.version}</version>
       <scope>test</scope>
     </dependency>
     <dependency>
@@ -112,7 +124,7 @@
       <artifactId>hbase</artifactId>
       <!-- <version>0.90.1-cdh3u0</version> -->
       <!-- <version>0.90.3-cdh3u1</version> -->
-      <version>0.90.4-cdh3u2</version>
+      <version>${cdh.hbase.version}</version>
       <scope>test</scope>
     </dependency>
     <dependency>
@@ -120,7 +132,7 @@
       <artifactId>zookeeper</artifactId>
       <!-- <version>3.3.3-cdh3u0</version> -->
       <!-- <version>3.3.3-cdh3u1</version> -->
-      <version>3.3.3-cdh3u2</version>
+      <version>${cdh.zookeeper.version}</version>
       <scope>test</scope>
     </dependency>
     <!-- The following are missing CDH dependencies -->

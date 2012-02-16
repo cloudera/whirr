@@ -20,17 +20,17 @@
   <parent>
     <groupId>org.apache.whirr</groupId>
     <artifactId>whirr</artifactId>
-    <version>0.7.1</version>
+    <version>0.7.1-cdh4b2-SNAPSHOT</version>
     <relativePath>../../pom.xml</relativePath>
   </parent>
   <groupId>org.apache.whirr</groupId>
   <artifactId>whirr-hbase</artifactId>
   <packaging>jar</packaging>
-  <version>0.7.1</version>
+  <version>0.7.1-cdh4b2-SNAPSHOT</version>
   <name>Apache Whirr HBase</name>
   <properties>
-    <hadoop.version>0.20.2</hadoop.version>
-    <hbase.version>0.89.20100924-28</hbase.version>
+    <hadoop.version>${cdh.hadoop.version}</hadoop.version>
+    <hbase.version>${cdh.hbase.version}</hbase.version>
   </properties>
   <dependencies>
     <dependency>
@@ -88,7 +88,7 @@
     <dependency>
       <groupId>org.apache.zookeeper</groupId>
       <artifactId>zookeeper</artifactId>
-      <version>3.3.1</version>
+      <version>${cdh.zookeeper.version}</version>
       <scope>test</scope>
     </dependency>
     <dependency>
@@ -98,7 +98,19 @@
     <dependency>
       <groupId>org.apache.hadoop</groupId>
       <artifactId>hadoop-core</artifactId>
-      <version>${hadoop.version}</version>
+      <version>${cdh.mr1.version}</version>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.hadoop</groupId>
+      <artifactId>hadoop-hdfs</artifactId>
+      <version>${cdh.hadoop.version}</version>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.hadoop</groupId>
+      <artifactId>hadoop-common</artifactId>
+      <version>${cdh.hadoop.version}</version>
       <scope>test</scope>
     </dependency>
     <dependency>
