@@ -24,6 +24,7 @@ import static org.junit.Assert.assertTrue;
 
 import com.google.common.collect.Lists;
 
+import java.nio.ByteBuffer;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -37,13 +38,17 @@ import org.junit.Test;
 
 public abstract class HBaseServiceTest {
 
-  private static final byte[] FIRST = Bytes.toBytes("");
-  private static final byte[] TABLE = Bytes.toBytes("testtable");
-  private static final byte[] ROW = Bytes.toBytes("testRow");
-  private static final byte[] FAMILY1 = Bytes.toBytes("testFamily1");
-  private static final byte[] FAMILY2 = Bytes.toBytes("testFamily2");
-  private static final byte[] COLUMN = Bytes.toBytes("testFamily1:testColumn");
-  private static final byte[] VALUE = Bytes.toBytes("testValue");
+  private static final ByteBuffer FIRST = toBytes("");
+  private static final ByteBuffer TABLE = toBytes("testtable");
+  private static final ByteBuffer ROW = toBytes("testRow");
+  private static final ByteBuffer FAMILY1 = toBytes("testFamily1");
+  private static final ByteBuffer FAMILY2 = toBytes("testFamily2");
+  private static final ByteBuffer COLUMN = toBytes("testFamily1:testColumn");
+  private static final ByteBuffer VALUE = toBytes("testValue");
+  
+  static ByteBuffer toBytes(String val) {
+    return ByteBuffer.wrap(Bytes.toBytes(val));
+  }
 
   protected static HBaseServiceController controller;
 

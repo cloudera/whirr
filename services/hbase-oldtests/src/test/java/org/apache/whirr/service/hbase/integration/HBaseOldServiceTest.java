@@ -16,56 +16,43 @@
  * limitations under the License.
  */
 
-package org.apache.whirr.service.cdh.integration;
-
-import static org.hamcrest.Matchers.is;
-import static org.junit.Assert.assertThat;
-import static org.junit.Assert.assertTrue;
+package org.apache.whirr.service.hbase.integration;
 
 import com.google.common.collect.Lists;
-
-import java.nio.ByteBuffer;
-import java.util.ArrayList;
-import java.util.List;
-
 import org.apache.hadoop.hbase.thrift.generated.ColumnDescriptor;
 import org.apache.hadoop.hbase.thrift.generated.Hbase;
 import org.apache.hadoop.hbase.thrift.generated.Mutation;
 import org.apache.hadoop.hbase.thrift.generated.TRowResult;
 import org.apache.hadoop.hbase.util.Bytes;
-import org.apache.whirr.service.hbase.integration.HBaseServiceController;
+import org.apache.whirr.TestConstants;
 import org.junit.AfterClass;
-import org.junit.BeforeClass;
 import org.junit.Test;
 
-public class CdhHBaseServiceTest {
+import java.util.ArrayList;
+import java.util.List;
 
-  private static final ByteBuffer FIRST = toBytes("");
-  private static final ByteBuffer TABLE = toBytes("testtable");
-  private static final ByteBuffer ROW = toBytes("testRow");
-  private static final ByteBuffer FAMILY1 = toBytes("testFamily1");
-  private static final ByteBuffer FAMILY2 = toBytes("testFamily2");
-  private static final ByteBuffer COLUMN = toBytes("testFamily1:testColumn");
-  private static final ByteBuffer VALUE = toBytes("testValue");
+import static org.hamcrest.Matchers.is;
+import static org.junit.Assert.assertThat;
+import static org.junit.Assert.assertTrue;
 
-  static ByteBuffer toBytes(String val) {
-    return ByteBuffer.wrap(Bytes.toBytes(val));
-  }
-  
-  private static HBaseServiceController controller =
-    HBaseServiceController.getInstance("whirr-hbase-test.properties");
+public abstract class HBaseOldServiceTest {
 
-  @BeforeClass
-  public static void setUp() throws Exception {
-    controller.ensureClusterRunning();
-  }
+  private static final byte[] FIRST = Bytes.toBytes("");
+  private static final byte[] TABLE = Bytes.toBytes("testtable");
+  private static final byte[] ROW = Bytes.toBytes("testRow");
+  private static final byte[] FAMILY1 = Bytes.toBytes("testFamily1");
+  private static final byte[] FAMILY2 = Bytes.toBytes("testFamily2");
+  private static final byte[] COLUMN = Bytes.toBytes("testFamily1:testColumn");
+  private static final byte[] VALUE = Bytes.toBytes("testValue");
+
+  protected static HBaseOldServiceController controller;
 
   @AfterClass
   public static void tearDown() throws Exception {
     controller.shutdown();
   }
 
-  @Test
+  @Test(timeout = TestConstants.ITEST_TIMEOUT)
   public void test() throws Exception {
     ArrayList<ColumnDescriptor> columns = new ArrayList<ColumnDescriptor>();
     ColumnDescriptor cd = new ColumnDescriptor();

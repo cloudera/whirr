@@ -24,14 +24,10 @@
     <relativePath>../../pom.xml</relativePath>
   </parent>
   <groupId>org.apache.whirr</groupId>
-  <artifactId>whirr-hbase</artifactId>
+  <artifactId>whirr-hbase-oldtests</artifactId>
   <packaging>jar</packaging>
   <version>0.7.1-cdh4b2-SNAPSHOT</version>
-  <name>Apache Whirr HBase</name>
-  <properties>
-    <hadoop.version>${cdh.hadoop.version}</hadoop.version>
-    <hbase.version>${cdh.hbase.version}</hbase.version>
-  </properties>
+  <name>Apache Whirr HBase Old Tests</name>
   <dependencies>
     <dependency>
       <groupId>${project.groupId}</groupId>
@@ -48,6 +44,11 @@
     <dependency>
       <groupId>${project.groupId}</groupId>
       <artifactId>whirr-hadoop</artifactId>
+      <version>${project.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>${project.groupId}</groupId>
+      <artifactId>whirr-hbase</artifactId>
       <version>${project.version}</version>
     </dependency>
     <dependency>
@@ -102,27 +103,15 @@
       <scope>test</scope>
     </dependency>
     <dependency>
-      <groupId>org.apache.hadoop</groupId>
-      <artifactId>hadoop-hdfs</artifactId>
-      <version>${cdh.hadoop.version}</version>
-      <scope>test</scope>
-    </dependency>
-    <dependency>
-      <groupId>org.apache.hadoop</groupId>
-      <artifactId>hadoop-common</artifactId>
-      <version>${cdh.hadoop.version}</version>
-      <scope>test</scope>
-    </dependency>
-    <dependency>
-      <groupId>org.apache.hbase</groupId>
+      <groupId>com.cloudera.hbase</groupId>
       <artifactId>hbase</artifactId>
-      <version>${hbase.version}</version>
+      <version>0.89.20100924-28</version>
       <scope>test</scope>
     </dependency>
     <dependency>
-      <groupId>org.apache.hbase</groupId>
+      <groupId>com.cloudera.hbase</groupId>
       <artifactId>hbase</artifactId>
-      <version>${hbase.version}</version>
+      <version>0.89.20100924-28</version>
       <classifier>tests</classifier>
       <scope>test</scope>
     </dependency>

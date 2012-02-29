@@ -20,7 +20,6 @@ package org.apache.whirr.service.hbase.integration;
 
 import java.io.IOException;
 import java.net.InetAddress;
-import java.nio.ByteBuffer;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Map.Entry;
@@ -48,19 +47,19 @@ import org.apache.whirr.service.hbase.HBaseThriftServerClusterActionHandler;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-public class HBaseServiceController {
+public class HBaseOldServiceController {
 
   private final String configResource;
 
   private static final Logger LOG =
-    LoggerFactory.getLogger(HBaseServiceController.class);
+    LoggerFactory.getLogger(HBaseOldServiceController.class);
 
-  private static final Map<String, HBaseServiceController> INSTANCES = new HashMap<String, HBaseServiceController>();
+  private static final Map<String, HBaseOldServiceController> INSTANCES = new HashMap<String, HBaseOldServiceController>();
 
-  public static HBaseServiceController getInstance(String configResource) {
-    HBaseServiceController controller = INSTANCES.get(configResource);
+  public static HBaseOldServiceController getInstance(String configResource) {
+    HBaseOldServiceController controller = INSTANCES.get(configResource);
     if (controller == null) {
-      controller = new HBaseServiceController(configResource);
+      controller = new HBaseOldServiceController(configResource);
       INSTANCES.put(configResource, controller);
     }
     return controller;
@@ -73,7 +72,7 @@ public class HBaseServiceController {
   private Cluster cluster;
   private Hbase.Client thriftClient;
 
-  private HBaseServiceController(String configResource) {
+  private HBaseOldServiceController(String configResource) {
     this.configResource = configResource;
   }
 
@@ -144,8 +143,8 @@ public class HBaseServiceController {
     LOG.info("Waiting for .META. table...");
     TProtocol protocol = new TBinaryProtocol(transport, true, true);
     Hbase.Client client = new Hbase.Client(protocol);
-    int scannerId = client.scannerOpen(ByteBuffer.wrap(HConstants.META_TABLE_NAME),
-        ByteBuffer.wrap(Bytes.toBytes("")), null);
+    int scannerId = client.scannerOpen(HConstants.META_TABLE_NAME,
+        Bytes.toBytes(""), null);
     client.scannerClose(scannerId);
     thriftClient = client;
   }

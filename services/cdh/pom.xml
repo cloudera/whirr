@@ -108,6 +108,26 @@
       <scope>test</scope>
     </dependency>
     <dependency>
+      <!-- look at https://repository.cloudera.com/artifactory/libs-release-local/org/apache/hadoop/hadoop-core/ 
+           to find version info for other cdh REPO versions, same for hbase and zookeeper -->
+      <groupId>org.apache.hadoop</groupId>
+      <artifactId>hadoop-common</artifactId>
+      <!-- <version>0.20.2-cdh3u0</version> -->
+      <!-- <version>0.20.2-cdh3u1</version> -->
+      <version>${cdh.hadoop.version}</version>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <!-- look at https://repository.cloudera.com/artifactory/libs-release-local/org/apache/hadoop/hadoop-core/ 
+           to find version info for other cdh REPO versions, same for hbase and zookeeper -->
+      <groupId>org.apache.hadoop</groupId>
+      <artifactId>hadoop-hdfs</artifactId>
+      <!-- <version>0.20.2-cdh3u0</version> -->
+      <!-- <version>0.20.2-cdh3u1</version> -->
+      <version>${cdh.hadoop.version}</version>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
       <groupId>org.apache.hadoop</groupId>
       <artifactId>hadoop-hdfs</artifactId>
       <version>${cdh.hadoop.version}</version>
