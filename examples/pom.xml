@@ -90,13 +90,11 @@
       <groupId>org.apache.hadoop</groupId>
       <artifactId>hadoop-hdfs</artifactId>
       <version>${cdh.hadoop.version}</version>
-      <scope>test</scope>
     </dependency>
     <dependency>
       <groupId>org.apache.hadoop</groupId>
       <artifactId>hadoop-common</artifactId>
       <version>${cdh.hadoop.version}</version>
-      <scope>test</scope>
     </dependency>
   </dependencies>
   <build>

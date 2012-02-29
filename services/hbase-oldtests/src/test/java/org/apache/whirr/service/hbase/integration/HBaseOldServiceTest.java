@@ -24,7 +24,6 @@ import org.apache.hadoop.hbase.thrift.generated.Hbase;
 import org.apache.hadoop.hbase.thrift.generated.Mutation;
 import org.apache.hadoop.hbase.thrift.generated.TRowResult;
 import org.apache.hadoop.hbase.util.Bytes;
-import org.apache.whirr.TestConstants;
 import org.junit.AfterClass;
 import org.junit.Test;
 
@@ -52,7 +51,7 @@ public abstract class HBaseOldServiceTest {
     controller.shutdown();
   }
 
-  @Test(timeout = TestConstants.ITEST_TIMEOUT)
+  @Test
   public void test() throws Exception {
     ArrayList<ColumnDescriptor> columns = new ArrayList<ColumnDescriptor>();
     ColumnDescriptor cd = new ColumnDescriptor();
