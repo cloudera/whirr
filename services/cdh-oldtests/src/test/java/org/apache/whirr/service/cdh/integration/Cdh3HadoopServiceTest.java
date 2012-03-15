@@ -62,10 +62,10 @@ import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-public class CdhHadoopServiceTest {
+public class Cdh3HadoopServiceTest {
 
   private static final Logger LOG = LoggerFactory
-      .getLogger(CdhHadoopServiceTest.class);
+      .getLogger(Cdh3HadoopServiceTest.class);
 
   private final static Predicate<NodeMetadata> ALL = Predicates.alwaysTrue();
 
@@ -75,7 +75,7 @@ public class CdhHadoopServiceTest {
   protected static Cluster cluster;
 
   protected static String getPropertiesFilename() {
-    return "whirr-hadoop-cdh-test.properties";
+    return "whirr-hadoop-cdh3-test.properties";
   }
   
   @BeforeClass
@@ -108,14 +108,14 @@ public class CdhHadoopServiceTest {
        controller.runScriptOnNodesMatching(clusterSpec, ALL, checkVersion);
 
     printResponses(checkVersion, responses);
-    assertResponsesContain(responses, checkVersion, "cdh4");
+    assertResponsesContain(responses, checkVersion, "cdh3");
   }
 
   @Test
   public void testJobExecution() throws Exception {
     Configuration conf = getConfiguration();
     
-    JobConf job = new JobConf(conf, CdhHadoopServiceTest.class);
+    JobConf job = new JobConf(conf, Cdh3HadoopServiceTest.class);
     JobClient client = new JobClient(job);
     waitForTaskTrackers(client);
 

@@ -39,7 +39,7 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
-public class CdhZooKeeperServiceTest {
+public class Cdh3ZooKeeperServiceTest {
   
   private ClusterSpec clusterSpec;
   private Cluster cluster;
@@ -52,7 +52,7 @@ public class CdhZooKeeperServiceTest {
     if (System.getProperty("config") != null) {
       config.addConfiguration(new PropertiesConfiguration(System.getProperty("config")));
     }
-    config.addConfiguration(new PropertiesConfiguration("whirr-zookeeper-cdh-test.properties"));
+    config.addConfiguration(new PropertiesConfiguration("whirr-zookeeper-cdh3-test.properties"));
     clusterSpec = ClusterSpec.withTemporaryKeys(config);
     controller = new ClusterController();
     
