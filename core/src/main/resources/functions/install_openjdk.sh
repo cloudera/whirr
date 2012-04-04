@@ -27,9 +27,9 @@ function install_openjdk_deb() {
 }
 
 function install_openjdk_rpm() {
-  retry_yum install java-1.6.0-openjdk
+  retry_yum -y install java-1.6.0-openjdk-devel
   
-  export JAVA_HOME=/usr/lib/jvm/java-1.6.0-openjdk
+  export JAVA_HOME=`ls -d /usr/lib/jvm/java-1.6.0-openjdk*|head -n 1`
   echo "export JAVA_HOME=$JAVA_HOME" >> /etc/profile
   echo "export JAVA_HOME=$JAVA_HOME" >> ~root/.bashrc
   alternatives --install /usr/bin/java java $JAVA_HOME/bin/java 17000
