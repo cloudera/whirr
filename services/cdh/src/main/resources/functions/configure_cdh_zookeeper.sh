@@ -18,7 +18,7 @@ function configure_cdh_zookeeper() {
   local OPTIND
   local OPTARG
   
-  REPO=${REPO:-cdh4}
+  REPO=${REPO:-cdh3}
   CDH_MAJOR_VERSION=$(echo $REPO | sed -e 's/cdh\([0-9]\).*/\1/')
   ZOOKEEPER_SERVER_PACKAGE=hadoop-zookeeper-server
   myid_file=/var/log/zookeeper/txlog/myid

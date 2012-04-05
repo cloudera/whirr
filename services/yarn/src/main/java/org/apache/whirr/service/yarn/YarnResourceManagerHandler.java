@@ -121,8 +121,14 @@ public class YarnResourceManagerHandler extends YarnHandler {
     config.setProperty("yarn.app.mapreduce.am.staging-dir", "/user");
     config.setProperty("yarn.application.classpath",
         "/etc/hadoop/conf.dist," +
-        "/usr/lib/hadoop/*," +
-        "/usr/lib/hadoop/lib/*," +
+        "$HADOOP_COMMON_HOME/*," +
+        "$HADOOP_COMMON_HOME/lib/*," +
+        "$HADOOP_HDFS_HOME/*," +
+        "$HADOOP_HDFS_HOME/lib/*," +
+        "$HADOOP_MAPRED_HOME/*," +
+        "$HADOOP_MAPRED_HOME/lib/*," +
+        "$YARN_HOME/*," +
+        "$YARN_HOME/lib/*" +
         "$HADOOP_CONF_DIR," +
         "$HADOOP_COMMON_HOME/share/hadoop/common/*," +
         "$HADOOP_COMMON_HOME/share/hadoop/common/lib/*," +

@@ -35,7 +35,7 @@ function configure_cdh_hadoop() {
       ;;
   esac
   
-  REPO=${REPO:-cdh4}
+  REPO=${REPO:-cdh3}
   CDH_MAJOR_VERSION=$(echo $REPO | sed -e 's/cdh\([0-9]\).*/\1/')
   if [ $CDH_MAJOR_VERSION = "4" ]; then
     HADOOP=hadoop

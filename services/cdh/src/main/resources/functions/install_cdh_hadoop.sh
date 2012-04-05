@@ -66,6 +66,7 @@ function install_cdh_hadoop() {
     if [ $MAPREDUCE_VERSION = "1" ]; then
       HADOOP_PACKAGE=hadoop-0.20-mapreduce
     else
+      echo export HADOOP_MAPRED_HOME=/usr/lib/hadoop-mapreduce >> /etc/profile
       HADOOP_PACKAGE=hadoop-mapreduce
     fi
   fi
