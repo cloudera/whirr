@@ -17,10 +17,10 @@
 function register_cloudera_repo() {
   if which dpkg &> /dev/null; then
     cat > /etc/apt/sources.list.d/cloudera.list <<EOF
-deb http://archive.cloudera.com/debian lucid-$REPO contrib
-deb-src http://archive.cloudera.com/debian lucid-$REPO contrib
+deb http://$REPO_HOST/debian lucid-$REPO contrib
+deb-src http://$REPO_HOST/debian lucid-$REPO contrib
 EOF
-    curl -s http://archive.cloudera.com/debian/archive.key | apt-key add -
+    curl -s http://$REPO_HOST/debian/archive.key | apt-key add -
     retry_apt_get update
   elif which rpm &> /dev/null; then
     rm -f /etc/yum.repos.d/cloudera.repo
@@ -28,8 +28,8 @@ EOF
     cat > /etc/yum.repos.d/cloudera-$REPO.repo <<EOF
 [cloudera-$REPO]
 name=Cloudera's Distribution for Hadoop, Version $REPO_NUMBER
-mirrorlist=http://archive.cloudera.com/redhat/cdh/$REPO_NUMBER/mirrors
-gpgkey = http://archive.cloudera.com/redhat/cdh/RPM-GPG-KEY-cloudera
+mirrorlist=http://$REPO_HOST/redhat/cdh/$REPO_NUMBER/mirrors
+gpgkey = http://$REPO_HOST/redhat/cdh/RPM-GPG-KEY-cloudera
 gpgcheck = 0
 EOF
     retry_yum update -y yum
@@ -59,6 +59,7 @@ function install_cdh_hbase() {
   esac
   
   REPO=${REPO:-cdh3}
+  REPO_HOST=${REPO_HOST:-archive.cloudera.com}
   HBASE_HOME=/usr/lib/hbase
   
   # up file-max
