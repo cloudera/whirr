@@ -58,6 +58,7 @@ import org.jclouds.scriptbuilder.domain.Statement;
 import org.jclouds.scriptbuilder.domain.Statements;
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -102,6 +103,7 @@ public class CdhHadoopServiceTest {
   }
 
   @Test
+  @Ignore
   public void testVersion() throws Exception {
     Statement checkVersion = Statements.exec("ls /etc/alternatives/hadoop-lib");
     Map<? extends NodeMetadata, ExecResponse> responses =
