@@ -25,7 +25,7 @@
   <groupId>org.apache.whirr</groupId>
   <artifactId>whirr-build-tools</artifactId>
   <packaging>jar</packaging>
-  <version>0.7.1-cdh4.0.0</version>
+  <version>0.7.1-cdh4.0.1</version>
   <name>Apache Whirr Build Tools</name>
 
   <profiles>
