@@ -21,14 +21,14 @@
   <modelVersion>4.0.0</modelVersion>
 
   <parent>
-    <groupId>org.apache</groupId>
-    <artifactId>apache</artifactId>
-    <version>7</version>
+    <groupId>com.cloudera.cdh</groupId>
+    <artifactId>cdh-root</artifactId>
+    <version>4.1.0-SNAPSHOT</version>
   </parent>
 
   <groupId>org.apache.whirr</groupId>
   <artifactId>whirr</artifactId>
-  <version>0.8.0</version>
+  <version>0.8.0-cdh4.1.0-SNAPSHOT</version>
   <packaging>pom</packaging>
 
   <name>Whirr</name>
@@ -417,6 +417,9 @@
         </executions>
         <configuration>
           <excludes>
+            <exclude>cloudera/**</exclude>
+            <exclude>debian/**</exclude>
+            <exclude>patch-stamp</exclude>
             <exclude>**/BUILD.txt</exclude>
             <exclude>**/CHANGES.txt</exclude>
             <exclude>**/NOTICE-src.txt</exclude>
@@ -519,6 +522,26 @@
 
   <repositories>
     <repository>
+      <id>cdh.repo</id>
+      <url>https://repository.cloudera.com/artifactory/cloudera-repos</url>
+      <name>Cloudera Repositories</name>
+      <snapshots>
+        <enabled>false</enabled>
+      </snapshots>
+    </repository>
+    
+    <repository>
+      <id>cdh.snapshots.repo</id>
+      <url>https://repository.cloudera.com/artifactory/libs-snapshot-local</url>
+      <name>Cloudera Snapshots Repository</name>
+      <snapshots>
+        <enabled>true</enabled>
+      </snapshots>
+      <releases>
+        <enabled>false</enabled>
+      </releases>
+    </repository>
+    <repository>
       <id>apache.snapshots</id>
       <name>Apache Snapshot Repository</name>
       <url>http://repository.apache.org/snapshots</url>
@@ -541,20 +564,7 @@
       <url>https://repository.apache.org/content/repositories/snapshots</url>
     </pluginRepository>
   </pluginRepositories>
-  <distributionManagement>
-    <repository>
-      <id>apache.staging.https</id>
-      <name>Nexus Staging Repo</name>
-      <url>https://repository.apache.org/service/local/staging/deploy/maven2/
-      </url>
-    </repository>
-    <site>
-      <id>apache.website</id>
-      <url>
-        scpexe://people.apache.org/www/whirr.apache.org/docs/${project.version}
-      </url>
-    </site>
-  </distributionManagement>
+
   <profiles>
     <profile>
       <!-- Used only when cutting a full release.  Configures the deploy plugin to mark
