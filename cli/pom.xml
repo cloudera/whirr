@@ -116,6 +116,11 @@
       <version>${project.version}</version>
     </dependency>
     <dependency>
+      <groupId>com.cloudera.whirr</groupId>
+      <artifactId>whirr-cm</artifactId>
+      <version>${project.version}</version>
+    </dependency>
+    <dependency>
       <groupId>junit</groupId>
       <artifactId>junit</artifactId>
     </dependency>
