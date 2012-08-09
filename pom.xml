@@ -67,7 +67,7 @@
     <common-ssl.version>0.3.11</common-ssl.version>
     <dnsjava.version>2.1.1</dnsjava.version>
     <guava.version>13.0</guava.version>
-    <hadoop.version>0.20.205.0</hadoop.version>
+    <hadoop.version>${cdh.hadoop.version}</hadoop.version>
     <hamcrest.version>1.1</hamcrest.version>
     <hama.version>0.4.0-incubating</hama.version>
     <hbase.version>0.92.0</hbase.version>
@@ -84,7 +84,7 @@
     <protobuff.version>2.3.0</protobuff.version>
     <slf4j.version>1.6.4</slf4j.version>
     <voldermort.version>0.90</voldermort.version>
-    <zookeeper.version>3.3.1</zookeeper.version>
+    <zookeeper.version>${cdh.zookeeper.version}</zookeeper.version>
     <velocity.version>1.7</velocity.version>
   </properties>
 
