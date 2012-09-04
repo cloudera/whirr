@@ -558,6 +558,9 @@
     <repository>
       <id>cloudera</id>
       <url>https://repository.cloudera.com/content/repositories/releases/</url>
+      <snapshots>
+        <enabled>false</enabled>
+      </snapshots>
     </repository>
   </repositories>
   <pluginRepositories>
