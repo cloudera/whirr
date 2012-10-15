@@ -20,13 +20,13 @@
   <parent>
     <groupId>org.apache.whirr</groupId>
     <artifactId>whirr</artifactId>
-    <version>0.8.0-cdh4.1.1-SNAPSHOT</version>
+    <version>0.8.0-cdh4.1.2-SNAPSHOT</version>
     <relativePath>../pom.xml</relativePath>
   </parent>
   <groupId>org.apache.whirr</groupId>
   <artifactId>whirr-core</artifactId>
   <packaging>bundle</packaging>
-  <version>0.8.0-cdh4.1.1-SNAPSHOT</version>
+  <version>0.8.0-cdh4.1.2-SNAPSHOT</version>
   <properties>
     <osgi.import>
       !org.apache.whirr*,
@@ -131,13 +131,13 @@
     <dependency>
       <groupId>org.apache.httpcomponents</groupId>
       <artifactId>httpmime</artifactId>
-      <version>4.1.1</version>
+      <version>4.1.2</version>
       <scope>test</scope>
     </dependency>
       <dependency>
       <groupId>org.apache.httpcomponents</groupId>
       <artifactId>httpclient</artifactId>
-      <version>4.1.1</version>
+      <version>4.1.2</version>
       <scope>test</scope>
     </dependency>
     <dependency>
