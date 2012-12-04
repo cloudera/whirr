@@ -191,7 +191,6 @@
             <artifactId>maven-compiler-plugin</artifactId>
             <configuration>
               <testExcludes>
-                <exclude>**/CdhHBaseServiceTest.java</exclude>
                 <exclude>**/CdhYarnServiceTest.java</exclude>
               </testExcludes>
             </configuration>
@@ -234,7 +233,6 @@
             <artifactId>maven-compiler-plugin</artifactId>
             <configuration>
               <testExcludes>
-                <exclude>**/CdhHBaseServiceTest.java</exclude>
                 <exclude>**/CdhHadoopServiceTest.java</exclude>
               </testExcludes>
             </configuration>

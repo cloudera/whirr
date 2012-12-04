@@ -16,7 +16,7 @@
  * limitations under the License.
  */
 
-package org.apache.whirr.service.cdh.integration;
+package org.apache.whirr.service.hbase.integration;
 
 import com.google.common.collect.Lists;
 import org.apache.hadoop.hbase.thrift.generated.ColumnDescriptor;
@@ -25,9 +25,7 @@ import org.apache.hadoop.hbase.thrift.generated.Mutation;
 import org.apache.hadoop.hbase.thrift.generated.TRowResult;
 import org.apache.hadoop.hbase.util.Bytes;
 import org.apache.whirr.TestConstants;
-import org.apache.whirr.service.hbase.integration.HBaseServiceController;
 import org.junit.AfterClass;
-import org.junit.BeforeClass;
 import org.junit.Test;
 
 import java.nio.ByteBuffer;
@@ -38,23 +36,21 @@ import static org.hamcrest.Matchers.is;
 import static org.junit.Assert.assertThat;
 import static org.junit.Assert.assertTrue;
 
-public class CdhHBaseServiceTest {
+public abstract class AbstractHBaseServiceTest {
 
-  private static final ByteBuffer FIRST = ByteBuffer.wrap(Bytes.toBytes(""));
-  private static final ByteBuffer TABLE = ByteBuffer.wrap(Bytes.toBytes("testtable"));
-  private static final ByteBuffer ROW = ByteBuffer.wrap(Bytes.toBytes("testRow"));
-  private static final ByteBuffer FAMILY1 = ByteBuffer.wrap(Bytes.toBytes("testFamily1"));
-  private static final ByteBuffer FAMILY2 = ByteBuffer.wrap(Bytes.toBytes("testFamily2"));
-  private static final ByteBuffer COLUMN = ByteBuffer.wrap(Bytes.toBytes("testFamily1:testColumn"));
-  private static final ByteBuffer VALUE = ByteBuffer.wrap(Bytes.toBytes("testValue"));
-
-  private static HBaseServiceController controller =
-    HBaseServiceController.getInstance("whirr-hbase-cdh-test.properties");
-
-  @BeforeClass
-  public static void setUp() throws Exception {
-    controller.ensureClusterRunning();
+  private static final ByteBuffer FIRST = toBytes("");
+  private static final ByteBuffer TABLE = toBytes("testtable");
+  private static final ByteBuffer ROW = toBytes("testRow");
+  private static final ByteBuffer FAMILY1 = toBytes("testFamily1");
+  private static final ByteBuffer FAMILY2 = toBytes("testFamily2");
+  private static final ByteBuffer COLUMN = toBytes("testFamily1:testColumn");
+  private static final ByteBuffer VALUE = toBytes("testValue");
+  
+  static ByteBuffer toBytes(String val) {
+    return ByteBuffer.wrap(Bytes.toBytes(val));
   }
+
+  protected static HBaseServiceController controller;
 
   @AfterClass
   public static void tearDown() throws Exception {
