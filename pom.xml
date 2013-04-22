@@ -21,14 +21,14 @@
   <modelVersion>4.0.0</modelVersion>
 
   <parent>
-    <groupId>org.apache</groupId>
-    <artifactId>apache</artifactId>
-    <version>7</version>
+    <groupId>com.cloudera.cdh</groupId>
+    <artifactId>cdh-root</artifactId>
+    <version>4.3.0-SNAPSHOT</version>
   </parent>
 
   <groupId>org.apache.whirr</groupId>
   <artifactId>whirr</artifactId>
-  <version>0.8.2</version>
+  <version>0.8.2-cdh4.3.0-SNAPSHOT</version>
   <packaging>pom</packaging>
 
   <name>Whirr</name>
@@ -68,10 +68,10 @@
     <common-ssl.version>0.3.11</common-ssl.version>
     <dnsjava.version>2.1.1</dnsjava.version>
     <guava.version>13.0</guava.version>
-    <hadoop.version>1.0.4</hadoop.version>
+    <hadoop.version>${cdh.hadoop.version}</hadoop.version>
     <hamcrest.version>1.1</hamcrest.version>
     <hama.version>0.4.0-incubating</hama.version>
-    <hbase.version>0.94.1</hbase.version>
+    <hbase.version>${cdh.hbase.version}</hbase.version>
     <jackson.version>1.5.2</jackson.version>
     <jclouds.version>1.5.8</jclouds.version>
     <jdom.version>1.1</jdom.version>
@@ -85,7 +85,7 @@
     <protobuff.version>2.3.0</protobuff.version>
     <slf4j.version>1.6.4</slf4j.version>
     <voldermort.version>0.90</voldermort.version>
-    <zookeeper.version>3.3.1</zookeeper.version>
+    <zookeeper.version>${cdh.zookeeper.version}</zookeeper.version>
     <velocity.version>1.7</velocity.version>
   </properties>
 
@@ -521,6 +521,26 @@
 
   <repositories>
     <repository>
+      <id>cdh.repo</id>
+      <url>https://repository.cloudera.com/artifactory/cloudera-repos</url>
+      <name>Cloudera Repositories</name>
+      <snapshots>
+        <enabled>false</enabled>
+      </snapshots>
+    </repository>
+    
+    <repository>
+      <id>cdh.snapshots.repo</id>
+      <url>https://repository.cloudera.com/artifactory/libs-snapshot-local</url>
+      <name>Cloudera Snapshots Repository</name>
+      <snapshots>
+        <enabled>true</enabled>
+      </snapshots>
+      <releases>
+        <enabled>false</enabled>
+      </releases>
+    </repository>
+    <repository>
       <id>apache.snapshots</id>
       <name>Apache Snapshot Repository</name>
       <url>http://repository.apache.org/snapshots</url>
@@ -544,12 +564,6 @@
     </pluginRepository>
   </pluginRepositories>
   <distributionManagement>
-    <repository>
-      <id>apache.staging.https</id>
-      <name>Nexus Staging Repo</name>
-      <url>https://repository.apache.org/service/local/staging/deploy/maven2/
-      </url>
-    </repository>
     <site>
       <id>apache.website</id>
       <url>
