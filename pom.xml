@@ -87,6 +87,8 @@
     <voldermort.version>0.90</voldermort.version>
     <zookeeper.version>${cdh.zookeeper.version}</zookeeper.version>
     <velocity.version>1.7</velocity.version>
+    <javaVersion>1.6</javaVersion>
+    <targetJavaVersion>1.6</targetJavaVersion>
   </properties>
 
   <dependencyManagement>
@@ -315,24 +317,29 @@
         <version>2.3.2</version>
         <configuration>
           <source>1.6</source>
-          <target>1.6</target>
+          <target>${targetJavaVersion}</target>
         </configuration>
       </plugin>
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-enforcer-plugin</artifactId>
         <version>1.0.1</version>
+        <inherited>false</inherited>
         <executions>
           <execution>
             <id>enforce-java</id>
             <goals>
               <goal>enforce</goal>
             </goals>
+            <phase>pre-clean</phase>
             <configuration>
               <rules>
                 <requireMavenVersion>
                   <version>[3.0.2,)</version>
                 </requireMavenVersion>
+                <requireJavaVersion>
+                  <version>[${javaVersion}.0,${javaVersion}.1000}]</version>
+                </requireJavaVersion>
               </rules>
             </configuration>
           </execution>
