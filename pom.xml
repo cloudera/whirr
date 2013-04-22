@@ -418,6 +418,9 @@
         </executions>
         <configuration>
           <excludes>
+            <exclude>cloudera/**</exclude>
+            <exclude>debian/**</exclude>
+            <exclude>patch-stamp</exclude>
             <exclude>**/BUILD.txt</exclude>
             <exclude>**/CHANGES.txt</exclude>
             <exclude>**/NOTICE-src.txt</exclude>
