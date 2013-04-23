@@ -36,6 +36,16 @@
       </binaries>
     </moduleSet>
   </moduleSets>
+  <dependencySets>
+    <dependencySet>
+      <includes>
+        <include>com.cloudera:whirr-cm</include>
+      </includes>
+      <outputDirectory>lib</outputDirectory>
+      <unpack>false</unpack>
+      <useTransitiveDependencies>true</useTransitiveDependencies>
+    </dependencySet>
+  </dependencySets>
   <fileSets>
     <fileSet>
       <directory>${project.basedir}</directory>

@@ -89,6 +89,7 @@
     <velocity.version>1.7</velocity.version>
     <javaVersion>1.6</javaVersion>
     <targetJavaVersion>1.6</targetJavaVersion>
+    <whirr-cm.version>1.1-SNAPSHOT</whirr-cm.version>
   </properties>
 
   <dependencyManagement>
@@ -256,9 +257,21 @@
         <artifactId>org.osgi.compendium</artifactId>
         <version>${osgi.version}</version>
       </dependency>
+      <dependency>
+        <groupId>com.cloudera</groupId>
+        <artifactId>whirr-cm</artifactId>
+        <version>${whirr-cm.version}</version>
+      </dependency>
     </dependencies>
   </dependencyManagement>
 
+  <dependencies>
+    <dependency>
+      <groupId>com.cloudera</groupId>
+      <artifactId>whirr-cm</artifactId>
+    </dependency>
+  </dependencies>
+  
   <build>
     <extensions>
       <extension>
