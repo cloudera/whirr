@@ -26,7 +26,7 @@
   <groupId>org.apache.whirr</groupId>
   <artifactId>whirr-hbase-oldtests</artifactId>
   <packaging>jar</packaging>
-  <version>0.8.2-cdh4.3.0-SNAPSHOT</version>
+  <version>0.8.2-cdh4.4.0-SNAPSHOT</version>
   <name>Apache Whirr HBase Old Tests</name>
   <dependencies>
     <dependency>
