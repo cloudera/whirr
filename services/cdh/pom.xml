@@ -126,7 +126,7 @@
     </dependency>
     <dependency>
       <groupId>org.apache.hbase</groupId>
-      <artifactId>hbase</artifactId>
+      <artifactId>hbase-server</artifactId>
       <version>${cdh.hbase.version}</version>
       <scope>test</scope>
     </dependency>
