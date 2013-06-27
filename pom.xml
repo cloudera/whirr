@@ -89,7 +89,7 @@
     <velocity.version>1.7</velocity.version>
     <javaVersion>1.6</javaVersion>
     <targetJavaVersion>1.6</targetJavaVersion>
-    <whirr-cm.version>1.1</whirr-cm.version>
+    <whirr-cm.version>1.2</whirr-cm.version>
   </properties>
 
   <dependencyManagement>
