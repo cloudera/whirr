@@ -60,7 +60,7 @@
     <not.yet.commons.ssl.version>0.3.11</not.yet.commons.ssl.version>
     <osgi.version>4.2.0</osgi.version>
     <protobuff.version>2.3.0</protobuff.version>
-    <slf4j.version>1.6.4</slf4j.version>
+    <slf4j.version>1.7.5</slf4j.version>
     <voldermort.version>0.90</voldermort.version>
     <zookeeper.version>${cdh.zookeeper.version}</zookeeper.version>
     <velocity.version>1.7</velocity.version>
