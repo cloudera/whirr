@@ -23,13 +23,13 @@
   <parent>
     <groupId>org.apache.whirr</groupId>
     <artifactId>whirr-parent</artifactId>
-    <version>0.9.0</version>
+    <version>0.9.0-cdh5.0.0-SNAPSHOT</version>
     <relativePath>parent/pom.xml</relativePath>
   </parent>
 
   <groupId>org.apache.whirr</groupId>
   <artifactId>whirr</artifactId>
-  <version>0.9.0</version>
+  <version>0.9.0-cdh5.0.0-SNAPSHOT</version>
   <packaging>pom</packaging>
 
   <name>Whirr</name>
@@ -61,6 +61,12 @@
     <module>services/druid</module>
   </modules>
 
+  <dependencies>
+    <dependency>
+      <groupId>com.cloudera</groupId>
+      <artifactId>whirr-cm</artifactId>
+    </dependency>
+  </dependencies>
 
   <build>
     <plugins>
@@ -125,6 +131,7 @@
         </executions>
         <configuration>
           <excludes>
+            <exclude>cloudera/**</exclude>
             <exclude>**/BUILD.txt</exclude>
             <exclude>**/CHANGES.txt</exclude>
             <exclude>**/NOTICE-src.txt</exclude>

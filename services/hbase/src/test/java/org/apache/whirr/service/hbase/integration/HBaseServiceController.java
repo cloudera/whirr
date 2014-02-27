@@ -18,18 +18,11 @@
 
 package org.apache.whirr.service.hbase.integration;
 
-import java.io.IOException;
-import java.net.InetAddress;
-import java.nio.ByteBuffer;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Map.Entry;
-
 import org.apache.commons.configuration.CompositeConfiguration;
 import org.apache.commons.configuration.PropertiesConfiguration;
 import org.apache.hadoop.conf.Configuration;
 import org.apache.hadoop.hbase.HBaseConfiguration;
-import org.apache.hadoop.hbase.HConstants;
+import org.apache.hadoop.hbase.TableName;
 import org.apache.hadoop.hbase.thrift.generated.Hbase;
 import org.apache.hadoop.hbase.thrift.generated.IOError;
 import org.apache.hadoop.hbase.thrift.generated.IllegalArgument;
@@ -47,6 +40,13 @@ import org.apache.whirr.service.hadoop.HadoopProxy;
 import org.apache.whirr.service.hbase.HBaseThriftServerClusterActionHandler;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
+import java.io.IOException;
+import java.net.InetAddress;
+import java.nio.ByteBuffer;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Map.Entry;
 
 public class HBaseServiceController {
 
@@ -144,7 +144,7 @@ public class HBaseServiceController {
     LOG.info("Waiting for .META. table...");
     TProtocol protocol = new TBinaryProtocol(transport, true, true);
     Hbase.Client client = new Hbase.Client(protocol);
-    int scannerId = client.scannerOpen(ByteBuffer.wrap(HConstants.META_TABLE_NAME),
+    int scannerId = client.scannerOpen(ByteBuffer.wrap(TableName.META_TABLE_NAME.getName()),
                                        ByteBuffer.wrap(Bytes.toBytes("")), null, null);
     client.scannerClose(scannerId);
     thriftClient = client;
