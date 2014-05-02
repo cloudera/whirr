@@ -62,7 +62,7 @@
     <protobuff.version>2.3.0</protobuff.version>
     <slf4j.version>1.6.4</slf4j.version>
     <voldermort.version>0.90</voldermort.version>
-    <whirr-cm.version>2.0</whirr-cm.version>
+    <whirr-cm.version>2.1</whirr-cm.version>
     <zookeeper.version>${cdh.zookeeper.version}</zookeeper.version>
     <velocity.version>1.7</velocity.version>
   </properties>
